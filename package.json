@@ -1,0 +1,19 @@
+{
+  "name": "aeris-porter",
+  "version": "0.0.0",
+  "description": "Porter component for Aeris",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Wilson <a@ax.gy>",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^1.2.0",
+    "koa-jwt": "^1.2.0",
+    "sequelize": "^3.23.3"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^2.4.0"
+  }
+}
