@@ -1,11 +1,9 @@
 'use strict';
 
 const express = require('express');
-
 const app = module.exports = express();
 
-
-app.get('/__health', (req, res) => res.status(200).end());
+app.get('/__health', require('./controllers/health'));
 
 // Start the app
 const port = process.env.PORT || 4400;
