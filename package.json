@@ -4,13 +4,14 @@
   "description": "Porter component for Aeris",
   "main": "index.js",
   "scripts": {
+    "start": "forever -c 'node --harmony' app/app.js",
+    "dev": "node app/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alex Wilson <a@ax.gy>",
   "license": "ISC",
   "dependencies": {
-    "koa": "^1.2.0",
-    "koa-jwt": "^1.2.0",
+    "forever": "^0.15.2",
     "sequelize": "^3.23.3"
   },
   "devDependencies": {
