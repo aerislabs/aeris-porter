@@ -61,8 +61,8 @@ exports.up = function(knex, Promise) {
   function createUserGroupTable() {
     return knex.schema.createTable('User_Group', (table) => {
       table.bigIncrements('id').primary().unsigned();
-      table.bigInteger('group_id').unsigned().index().references('id').inTable('Group').comment('Group.');
       table.bigInteger('user_id').unsigned().index().references('id').inTable('User').comment('User.');
+      table.bigInteger('group_id').unsigned().index().references('id').inTable('Group').comment('Group.');
       table.timestamps();
     });
   };
