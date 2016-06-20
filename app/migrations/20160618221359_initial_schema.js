@@ -16,11 +16,12 @@ exports.up = function(knex, Promise) {
     return knex.schema.createTable('User', (table) => {
       table.bigIncrements('id').primary().unsigned().comment('User ID');
       table.uuid('uuid').comment('UUID for each user.');
-      table.string('email').comment('Email address');
-      table.string('hash').comment('Password Hash');
-      table.string('hash_type').defaultTo(1).comment('Password Hash Type (for migrations)');
-      table.boolean('active').defaultTo(false).comment('Whether or not a user is active');
-      table.boolean('banned').defaultTo(false).comment('Whether or not a user is banned');
+      table.string('name').comment('Account Name.');
+      table.string('email').comment('Email address.');
+      table.string('hash').comment('Password Hash.');
+      table.string('hash_type').defaultTo(1).comment('Password Hash Type (for migrations).');
+      table.boolean('active').defaultTo(false).comment('Whether or not a user is active.');
+      table.boolean('banned').defaultTo(false).comment('Whether or not a user is banned.');
       table.jsonb('data').comment('Other user metadata (prefs, etc).');
       table.timestamps();
     })
@@ -33,6 +34,7 @@ exports.up = function(knex, Promise) {
   function createProfileTable() {
     return knex.schema.createTable('Profile', (table) => {
       table.bigIncrements('id').primary().unsigned().comment('Profile ID.');
+      table.string('name').comment('Profile Name.');
       table.boolean('visible').defaultTo(false).comment('Whether or not this profile is visible to other users.');
       table.bigInteger('owner_id').unsigned().index().references('id').inTable('User').comment('The User who owns this profile.');
       table.jsonb('data').comment('Profile metadata and fields.');
