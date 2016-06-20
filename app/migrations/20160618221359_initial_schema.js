@@ -100,7 +100,7 @@ exports.up = function(knex, Promise) {
   function createInvitationTable() {
     return knex.schema.createTable('Invitation', (table) => {
       table.bigIncrements('id').primary().unsigned().comment('Invitation ID.');
-      table.uuid('code').comment('Invitation code.');
+      table.string('code').comment('Invitation code.');
       table.boolean('claimed').defaultTo(false).comment('Whether or not this invitation has been claimed.');
       table.bigInteger('created_by').unsigned().index().references('id').inTable('User');
       table.bigInteger('claimed_by').unsigned().index().references('id').inTable('User');
