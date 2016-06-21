@@ -10,6 +10,7 @@ class User extends Model {
   static jsonSchema = {
     'id': { type: 'integer' },
     'uuid': { type: 'uuid' },
+    'name': { type: 'string' },
     'email': { type: 'email' },
     'hash': { type: 'string' },
     'hash_type': { type: 'integer' },
